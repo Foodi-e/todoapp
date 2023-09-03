@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Notes</title>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}">
+    </head>
+
+    <body>
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="card" style="width: 600px;">
+            <div class="card-body">
+                <form th:action="@{/note/edit(id=${note.getId()})}"
+                      method="post">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" id="title" name="title" th:value="${note.getTitle()}" required>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="content">Content:</label>
+                        <textarea class="form-control" id="content" name="content" rows="4" required th:text="${note.getContent()}"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+
+</html>
