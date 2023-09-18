@@ -8,6 +8,5 @@ import org.mapstruct.MappingTarget;
 public interface Mapper {
     Note toEntity(NoteDto note);
     NoteDto toDto(Note note);
-
     void merge(NoteDto noteDto, @MappingTarget Note note);
 }

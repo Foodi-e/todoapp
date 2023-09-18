@@ -38,9 +38,9 @@ public class NoteController {
     }
 
     @PostMapping("/edit")
-    public RedirectView update(@RequestParam ("id") Long id, @RequestParam String title, @RequestParam String content){
+    public RedirectView update(@ModelAttribute NoteDto noteDto){
         RedirectView redirectView = new RedirectView("/note/list");
-        noteService.update(id, new NoteDto(id, title, content));
+        noteService.update(noteDto.getId(), noteDto);
         return redirectView;
     }
 }
